@@ -7,14 +7,14 @@ stackdriver-zaplogger is a zap logger interface for stackdriver.\
 
 ## How to install
 
-```
+```sh
 go get -u github.com/yanolab/stackdriver-zaplogger
 ```
 
 ## How to use
 
 For example, Output to both console and stackdriver:
-```
+```golang
 package main
 
 import (
