@@ -26,6 +26,9 @@ jobs:
       - run:
           name: build
           command: go build -race -o /dev/null
+      - run:
+          name: build example
+          command: go build -race -o /dev/null example/main.go
       - save_cache:
           key: v1-pkg-cache-{{ checksum "go.sum" }}
           paths:
@@ -33,8 +36,6 @@ jobs:
   review:
     executor:
       name: default
-    environment:
-
     steps:
       - checkout
       - restore_pkg_cache

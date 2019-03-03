@@ -1,6 +1,7 @@
 package zaplogger
 
 import (
+	"strings"
 	"testing"
 
 	"go.uber.org/zap"
@@ -22,6 +23,9 @@ func Test_toStackdriver(t *testing.T) {
 
 	if zapentry.Time.Unix() != stdentry.Timestamp.Unix() {
 		t.Fatalf("unexpected time: expected=%v actual:%v", zapentry.Time, stdentry.Timestamp)
+	}
+	if zapentry.Level.CapitalString() != strings.ToUpper(stdentry.Severity.String()) {
+		t.Fatalf("unexpected log level: expected=%v actual:%v", zapentry.Level, stdentry.Severity)
 	}
 
 	m := stdentry.Payload.(map[string]interface{})
