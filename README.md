@@ -13,7 +13,7 @@ go get -u github.com/yanolab/stackdriver-zaplogger
 
 ## How to use
 
-For example:
+For example, Output to both console and stackdriver:
 ```
 package main
 
